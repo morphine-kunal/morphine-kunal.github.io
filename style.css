@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+body {
+  background: linear-gradient(
+    -45deg,
+    #a8ff78,
+    #78ffd6,
+    #c6ffdd,
+    #fbd786,
+    #f7797d,
+    #3494e6,
+    #ec6ead,
+    #fdfc47,
+    #24fe41
+  );
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  /* height: 100vh; */
+  /* width: 100vw; */
+  height: 100vh;
+  
+  
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#intro {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  top: 5%;
+  width: 100%;
+}
+#para {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+#para p{
+    padding: 1%;
+    border-radius: 12px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 550;
+    font-size: 1.5rem;
+    background-color:#e9e4e0;
+}
+
+.line-1 {
+  position: relative;
+  /* top: 50%;   */
+  width: 24em;
+  /* margin: 0 auto; */
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  font-size: 3rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-family: "Anonymous Pro", monospace;
+}
+
+/* Animation */
+.anim-typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 24em;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: black;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+#projects {
+  display: flex;
+  justify-content: center;
+  /* width: 50vw; */
+  top: 2%;
+}
+#my-intro {
+  display: flex;
+  justify-content: center;
+  font-family: "Anonymous Pro", monospace;
+}
+
+#my-intro a {
+  text-decoration: none;
+  font-size: 45px;
+  background: -webkit-linear-gradient(#ad5389, #3c1053);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  
+}
+
+ol {
+  counter-reset: li;
+  list-style: none;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+ol li {
+  padding-bottom: 10px;
+}
+
+ol a {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 2em;
+  margin: 0.5em 0;
+  background: #dad2ca;
+  width: 35em;
+  /* height: 2em; */
+  color: #444;
+  text-decoration: none;
+  border-radius: 0.3em;
+  transition: 0.3s ease-out;
+  font-size: 20px;
+}
+
+ol a:hover {
+  background: #e9e4e0;
+}
+ol a:hover:before {
+  transform: rotate(360deg);
+}
+ol a:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #f9dd94;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: 0.3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all 0.3s ease-out;
+}

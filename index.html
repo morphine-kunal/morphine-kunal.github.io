@@ -1,5 +1,145 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Description</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
   <body>
-    <h1>Home</h1>
+    <div id="intro">
+      <h1 class="line-1 anim-typewriter">
+        Hello!! Welcome To My Project Directory.
+      </h1>
+    </div>
+    <div id="my-intro">
+      <h1>
+        <a
+          
+          class="typewrite"
+          data-period="1"
+          data-type='[ "Hi, I am Kunal Kishore.", "I am Creative.", "I Love to Design.", "I Love to Develop." ]'
+        >
+          <span class="wrap"></span>
+        </a>
+      </h1>
+    </div>
+    <div id="para">
+      <p>
+        Please find below the links to preview my project. Simply click on the desired link to access the preview.
+      </p>
+    </div>
+    <div id="projects">
+      <ol>
+        <b>
+          <li class="">
+            <a
+              href="https://morphine-kunal.github.io/portfolio-template-responsive/"
+              target="_blank"
+              >Responsive Portfolio Template with Animation (HTML & CSS)</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="https://morphine-kunal.github.io/Virat-fan-page/"
+              target="_blank"
+              >Virat Kohli Fanpage (HTML & CSS)</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="https://morphine-kunal.github.io/loginui-react/"
+              target="_blank"
+              >Login UI with Dummy-Data (React.js)</a
+            >
+          </li>
+          <li class="">
+            <a
+              href="http://morphine-kunal.github.io/expensetracker-react"
+              target="_blank"
+              >Expense Tracker and Monitor Web Sample UI (React.js)</a
+            >
+          </li>
+
+          <li class="">
+            <a
+              href="https://morphine-kunal.github.io/foodorder-react/"
+              target="_blank"
+              >Food Ordering Web Sample UI (React.js)</a
+            >
+          </li>
+
+          <li class="">
+            <a href="http://morphine-kunal.github.io/todo-react" target="_blank"
+              >To-Do List Web Sample UI (React.js)</a
+            >
+          </li>
+        </b>
+      </ol>
+    </div>
+    <div>
+        <marquee><h3>I appreciate your visit to my page. Thank you for stopping by.</h3></marquee>
+    </div>
+    <script>
+      var TxtType = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 100) || 2000;
+        this.txt = "";
+        this.tick();
+        this.isDeleting = false;
+      };
+
+      TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+
+        var that = this;
+        var delta = 130 - Math.random() * 100;
+
+        if (this.isDeleting) {
+          delta /= 2;
+        }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === "") {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 50;
+        }
+
+        setTimeout(function () {
+          that.tick();
+        }, delta);
+      };
+
+      window.onload = function () {
+        var elements = document.getElementsByClassName("typewrite");
+        for (var i = 0; i < elements.length; i++) {
+          var toRotate = elements[i].getAttribute("data-type");
+          var period = elements[i].getAttribute("data-period");
+          if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+          }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+      };
+    </script>
   </body>
 </html>
